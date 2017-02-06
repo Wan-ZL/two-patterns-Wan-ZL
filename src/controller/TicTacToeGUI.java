@@ -82,6 +82,13 @@ public class TicTacToeGUI extends JFrame {
 		jmi2Nest.add(beginner);
 		JMenuItem intermediate = new JMenuItem("Stopper");
 		jmi2Nest.add(intermediate);
+		JMenuItem Views = new JMenu("Views");
+		menu.add(Views);
+		JMenuItem JButton = new JMenuItem("JButtom");
+		Views.add(JButton);
+		JMenuItem JTextField = new JMenuItem("JTextField");
+		Views.add(JTextField);
+		
 
 		// Set the menu bar
 		JMenuBar menuBar = new JMenuBar();
@@ -93,6 +100,8 @@ public class TicTacToeGUI extends JFrame {
 		newGame.addActionListener(menuListener);
 		beginner.addActionListener(menuListener);
 		intermediate.addActionListener(menuListener);
+		JButton.addActionListener(menuListener);
+		JTextField.addActionListener(menuListener);
 	}
 
 	private void setViewTo(JPanel newView) {
