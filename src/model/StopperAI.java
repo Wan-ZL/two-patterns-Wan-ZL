@@ -9,6 +9,7 @@ import java.util.Random;
  * a place to win, which an sometimes be a win even if not really trying.
  * 
  * @author mercer
+ * Author: Zelin Wan
  */
 
 /*

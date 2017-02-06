@@ -10,6 +10,7 @@ import java.util.Random;
  *             whenever asked for a move that is impossible to deliver
  * 
  * @author mercer
+ * Author: Zelin Wan
  */
 
 // There is an intentional compile time error. Implement this interface
