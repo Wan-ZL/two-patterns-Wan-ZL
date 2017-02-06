@@ -84,11 +84,10 @@ public class TicTacToeGUI extends JFrame {
 		jmi2Nest.add(intermediate);
 		JMenuItem Views = new JMenu("Views");
 		menu.add(Views);
-		JMenuItem JButton = new JMenuItem("JButtom");
+		JMenuItem JButton = new JMenuItem("Jbutton");
 		Views.add(JButton);
 		JMenuItem JTextField = new JMenuItem("JTextField");
 		Views.add(JTextField);
-		
 
 		// Set the menu bar
 		JMenuBar menuBar = new JMenuBar();
@@ -134,6 +133,14 @@ public class TicTacToeGUI extends JFrame {
 
 			if (text.equals("Random")) {
 				theGame.setComputerPlayerStrategy(new RandomAI());
+			}
+			if (text.equals("Jbutton")) {
+				System.out.println("button");
+
+			}
+			if (text.equals("JTextField")) {
+				System.out.println("text");
+
 			}
 		}
 	}
