@@ -13,6 +13,7 @@ import model.RandomAI;
 import model.StopperAI;
 import model.TicTacToeGame;
 import view.ButtonView;
+import view.TextFieldView;
 
 /**
  * Play TicTacToe the computer that can have different AIs to beat you. Select
@@ -42,6 +43,7 @@ public class TicTacToeGUI extends JFrame {
 
 	private TicTacToeGame theGame;
 	private ButtonView buttonView;
+	private TextFieldView textView;
 	private JPanel currentView;
 	public static final int width = 300;
 	public static final int height = 360;
@@ -55,6 +57,7 @@ public class TicTacToeGUI extends JFrame {
 		setupMenus();
 		initializeGameForTheFirstTime();
 		buttonView = new ButtonView(theGame, width, height);
+		textView = new TextFieldView(theGame, width, height);
 		addObservers();
 		// Set default view
 		setViewTo(buttonView);
@@ -135,11 +138,11 @@ public class TicTacToeGUI extends JFrame {
 				theGame.setComputerPlayerStrategy(new RandomAI());
 			}
 			if (text.equals("Jbutton")) {
-				System.out.println("button");
+				setViewTo(buttonView);
 
 			}
 			if (text.equals("JTextField")) {
-				System.out.println("text");
+				setViewTo(textView);
 
 			}
 		}
