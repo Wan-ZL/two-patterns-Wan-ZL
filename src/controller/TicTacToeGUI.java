@@ -128,6 +128,7 @@ public class TicTacToeGUI extends JFrame {
 			if (text.equals("New Game")) {
 				theGame.startNewGame(); // The computer player has been set and
 										// should not change.
+				textView.update();
 			}
 
 			if (text.equals("Stopper")) {
@@ -142,6 +143,7 @@ public class TicTacToeGUI extends JFrame {
 
 			}
 			if (text.equals("JTextField")) {
+				textView.update();  
 				setViewTo(textView);
 
 			}
