@@ -46,11 +46,11 @@ public class TextFieldView extends JPanel implements OurObserver {
 		JPanel textPanel = new JPanel();
 		int size = theGame.size();
 		textPanel.setLayout(new GridLayout(size, size));
-		Font myFont = new Font("Arial", Font.TRUETYPE_FONT, 36);
+		Font myFont = new Font("Courier", Font.BOLD, 42);
 		text = new JTextArea[size][size];
 		for (int i = 0; i < size; i++) {
 			for (int j = 0; j < size; j++) {
-				text[i][j] = new JTextArea("  _");
+				text[i][j] = new JTextArea(" _");
 				text[i][j].setFont(myFont);
 				// buttons[i][j].addActionListener(buttonListener);
 				textPanel.add(text[i][j]);
@@ -134,7 +134,7 @@ public class TextFieldView extends JPanel implements OurObserver {
 			for (int m = 0; m < temp[i].length; m++) {
 				String text = "" + temp[i][m];
 				if (text.equals("X") || text.equals("O")) {
-					this.text[i][m].setText("  "+text);
+					this.text[i][m].setText(" "+text);
 					this.text[i][m].setEnabled(false);
 				}
 			}
@@ -146,7 +146,7 @@ public class TextFieldView extends JPanel implements OurObserver {
 	private void resetText(boolean enable) {	// fully reset the Text Panel
 		for (int i = 0; i < theGame.size(); i++) {
 			for (int m = 0; m < theGame.size(); m++) {
-				text[i][m].setText("  _");
+				text[i][m].setText(" _");
 				text[i][m].setEnabled(enable);
 			}
 		}
