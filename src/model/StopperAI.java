@@ -16,6 +16,9 @@ import java.util.Random;
  * 1. if can block, do it. 2. if can win, get it 3. if enter is empty, fill it.
  * 4. if corner is empty, random choose one corner 5. random choose one Note:
  * 'O' is AI
+ * 
+ * Author: Zelin Wan
+ * Purpose: A super smart AI
  */
 public class StopperAI implements TicTacToeStrategy {
 
@@ -122,7 +125,7 @@ public class StopperAI implements TicTacToeStrategy {
 			}
 		}
 		
-		Random rand = new Random();
+		Random rand = new Random();	// if the top situations didn't happen, just choose one Randomly.
 		x = rand.nextInt(3);
 		y = rand.nextInt(3);
 		while(theGame.getTicTacToeBoard()[x][y] != '_'){

@@ -18,7 +18,6 @@ public class OurObservable {
   }
 
   public void notifyObservers() {
-	  System.out.println("here");
     // Out simple Onservable
     for (OurObserver observer : observers)
       observer.update();

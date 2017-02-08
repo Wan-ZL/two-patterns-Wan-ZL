@@ -11,6 +11,7 @@ import java.util.Random;
  * 
  * @author mercer
  * Author: Zelin Wan
+ * Purpose: create a Stupid AI that play Randomly.
  */
 
 // There is an intentional compile time error. Implement this interface
@@ -35,7 +36,7 @@ public class RandomAI implements TicTacToeStrategy {
 		Random rand = new Random();
 		int x = rand.nextInt(3);
 		int y = rand.nextInt(3);
-		while(theGame.getTicTacToeBoard()[x][y] != '_'){
+		while(theGame.getTicTacToeBoard()[x][y] != '_'){	// if the position is empty, play. If is not, new loop
 			x = rand.nextInt(3);
 			y = rand.nextInt(3);
 		}

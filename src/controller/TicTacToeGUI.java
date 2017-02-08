@@ -33,6 +33,9 @@ import view.TextFieldView;
  * You can also select two different strategies to play against from the menus
  * 
  * @author mercer
+ * 
+ * Author: Zelin Wan
+ * Purpose: I added some new menus, and edit some samll detail for compatible the new class 'TextFieldView'
  */
 public class TicTacToeGUI extends JFrame {
 
@@ -85,7 +88,7 @@ public class TicTacToeGUI extends JFrame {
 		jmi2Nest.add(beginner);
 		JMenuItem intermediate = new JMenuItem("Stopper");
 		jmi2Nest.add(intermediate);
-		JMenuItem Views = new JMenu("Views");
+		JMenuItem Views = new JMenu("Views");	// new menu for change the panel view
 		menu.add(Views);
 		JMenuItem JButton = new JMenuItem("Jbutton");
 		Views.add(JButton);
@@ -128,7 +131,7 @@ public class TicTacToeGUI extends JFrame {
 			if (text.equals("New Game")) {
 				theGame.startNewGame(); // The computer player has been set and
 										// should not change.
-				textView.update();
+				textView.update();	//refresh textPanel each new match
 			}
 
 			if (text.equals("Stopper")) {
@@ -138,11 +141,11 @@ public class TicTacToeGUI extends JFrame {
 			if (text.equals("Random")) {
 				theGame.setComputerPlayerStrategy(new RandomAI());
 			}
-			if (text.equals("Jbutton")) {
+			if (text.equals("Jbutton")) {	// change back to Button View
 				setViewTo(buttonView);
 
 			}
-			if (text.equals("JTextField")) {
+			if (text.equals("JTextField")) {	// change to Text View
 				textView.update();  
 				setViewTo(textView);
 

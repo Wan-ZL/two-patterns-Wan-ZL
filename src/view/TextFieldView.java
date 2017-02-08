@@ -1,5 +1,11 @@
 package view;
 
+/*
+ * Author: Zelin Wan
+ * Purpose: This is another type of view, use JTextArea instead of JButton.
+ * (This calss is learned from ButtonView.java)
+ */
+
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Point;
@@ -36,7 +42,7 @@ public class TextFieldView extends JPanel implements OurObserver {
 		initializeTextPanel();
 	}
 
-	private void initializeTextPanel() {
+	private void initializeTextPanel() {	// initiallize the play Panel
 		JPanel textPanel = new JPanel();
 		int size = theGame.size();
 		textPanel.setLayout(new GridLayout(size, size));
@@ -64,7 +70,7 @@ public class TextFieldView extends JPanel implements OurObserver {
 		initializeButton();
 	}
 
-	private void initializeTextInput() {
+	private void initializeTextInput() {	// initailize the input square
 		JPanel inputPanel = new JPanel();
 		int size = 2;
 		inputText = new JTextArea[size][1];
@@ -79,7 +85,7 @@ public class TextFieldView extends JPanel implements OurObserver {
 		this.add(inputPanel);
 	}
 
-	private void initializeLabel() {
+	private void initializeLabel() {	// initailize the label of input square
 		JPanel labelPanel = new JPanel();
 		int size = 2;
 		inputLabel = new JLabel[size][1];
@@ -94,7 +100,7 @@ public class TextFieldView extends JPanel implements OurObserver {
 		this.add(labelPanel);
 	}
 
-	private void initializeButton() {
+	private void initializeButton() {	// initialize the play button
 		JPanel buttonPanel = new JPanel();
 		int size = 1;
 		buttonPanel.setLayout(new GridLayout(size, size, 5, 5));
@@ -110,7 +116,7 @@ public class TextFieldView extends JPanel implements OurObserver {
 
 	}
 
-	public void update() {
+	public void update() {	// update the text Panel
 		if (theGame.maxMovesRemaining() == theGame.size() * theGame.size()) {
 			resetText(true);
 		}
@@ -137,7 +143,7 @@ public class TextFieldView extends JPanel implements OurObserver {
 
 	}
 
-	private void resetText(boolean enable) {
+	private void resetText(boolean enable) {	// fully reset the Text Panel
 		for (int i = 0; i < theGame.size(); i++) {
 			for (int m = 0; m < theGame.size(); m++) {
 				text[i][m].setText("  _");
@@ -146,7 +152,7 @@ public class TextFieldView extends JPanel implements OurObserver {
 		}
 	}
 
-	private class ButtonListener implements ActionListener {
+	private class ButtonListener implements ActionListener {	// the actionListener of play button
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
@@ -162,7 +168,7 @@ public class TextFieldView extends JPanel implements OurObserver {
 			}
 			else{
 				theGame.choose(x, y);
-				updateText();
+				updateText();		// after played, update the Panel
 			}
 			
 			if(theGame.tied()){
