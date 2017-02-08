@@ -142,6 +142,7 @@ public class TicTacToeGUI extends JFrame {
 				theGame.setComputerPlayerStrategy(new RandomAI());
 			}
 			if (text.equals("Jbutton")) {	// change back to Button View
+				//buttonView.update();
 				setViewTo(buttonView);
 
 			}

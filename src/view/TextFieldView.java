@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
@@ -40,6 +41,7 @@ public class TextFieldView extends JPanel implements OurObserver {
 		this.width = width;
 		computerPlayer = theGame.getComputerPlayer();
 		initializeTextPanel();
+		buttons[0][0].setEnabled(true);
 	}
 
 	private void initializeTextPanel() {	// initiallize the play Panel
@@ -150,20 +152,30 @@ public class TextFieldView extends JPanel implements OurObserver {
 				text[i][m].setEnabled(enable);
 			}
 		}
+		buttons[0][0].setEnabled(true);
+		buttons[0][0].setText("Make The move");
+		stateText.setText("");
+		
 	}
 
 	private class ButtonListener implements ActionListener {	// the actionListener of play button
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			x = Integer.parseInt(inputText[0][0].getText());
-			y = Integer.parseInt(inputText[1][0].getText());
+			try{
+				x = Integer.parseInt(inputText[0][0].getText());
+				y = Integer.parseInt(inputText[1][0].getText());
+			}
+			catch(Exception e){
+				JOptionPane.showMessageDialog(null, "Invalid input");	//show ERROR information
+				return;
+			}
 			if(x > 2 || y > 2 || x < 0 || y < 0){
-				System.out.println("ERROR, input range is 0-2");
+				JOptionPane.showMessageDialog(null, "Invalid move");	//show ERROR information
 				return;
 			}
 			if(theGame.getTicTacToeBoard()[x][y] != '_'){
-				System.out.println("ERROR, the position already placed");
+				JOptionPane.showMessageDialog(null, "Move not available");	//show ERROR information
 				return;
 			}
 			else{
@@ -173,9 +185,13 @@ public class TextFieldView extends JPanel implements OurObserver {
 			
 			if(theGame.tied()){
 				stateText.setText("Tied");
+				buttons[0][0].setText("Tied");
+				buttons[0][0].setEnabled(false);
 			}
 			else if(theGame.didWin('X')){
 				stateText.setText("X wins");
+				buttons[0][0].setText("X wins");
+				buttons[0][0].setEnabled(false);
 				updateText();
 			}
 			else{
@@ -184,6 +200,8 @@ public class TextFieldView extends JPanel implements OurObserver {
 				updateText();
 				if(theGame.didWin('O')){
 					stateText.setText("O wins");
+					buttons[0][0].setText("O wins");
+					buttons[0][0].setEnabled(false);
 					updateText();
 				}
 			}
